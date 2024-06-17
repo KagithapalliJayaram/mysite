@@ -1,0 +1,26 @@
+{% extends 'main/header.html' %}
+
+{% block content %}
+  {% if user.is_authenticated %}
+    <div class="row">
+      {% for tut in tutorials %}
+          <div class="col s12 m6">
+            <div class="card hoverable">
+              <div class="card-content">
+                <a href="{{tut.tutorial_slug}}">
+                  <span class="card-title">{{tut.tutorial_title}}</span>
+                  <p style="font-size:70%">Published {{tut.tutorial_published}}</p>
+                  <p>{{tut.tutorial_content|safe}}</p>
+              </a>
+              </div>
+            </div>
+          </div>
+      {% endfor %}
+    </div>
+    {% else %}
+     <div style="text-align:center; justify-content:center; align-items:center; font-size:50px; display:flex; height:100vh;">Welcome to my Webpage. To access the content kindly login!!!</div>
+      {% endif %}
+{% endblock %}
+
+
+  
